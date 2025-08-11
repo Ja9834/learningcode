@@ -11,7 +11,7 @@ jobs:
         run: free -h
 
       - name: Check Disk
-        run: df -h /
+        run: df -Th /
 
       - name: Check CPU Info
         run: lscpu
