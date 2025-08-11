@@ -1,0 +1,25 @@
+name: Check GitHub Actions Resources
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check-resources:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check RAM
+        run: free -h
+
+      - name: Check Disk
+        run: df -h /
+
+      - name: Check CPU Info
+        run: lscpu
+
+      - name: Check GPU (if any)
+        run: |
+          if command -v nvidia-smi &> /dev/null; then
+            nvidia-smi
+          else
+            echo "No GPU available"
+          fi
